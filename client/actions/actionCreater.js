@@ -5,7 +5,8 @@ export function increment(index) {
   }
 }
 
-export function decrement(postId, author, comment) {
+export function addComment(postId, author, comment) {
+  console.log("fire comment")
   return {
     type: 'ADD_COMMENT',
     postId,
@@ -15,10 +16,11 @@ export function decrement(postId, author, comment) {
   }
 }
 
-export function removeComment(postID,i) {
+export function removeComment(postId,i) {
+  console.log('removed')
   return {
     type:'REMOVE_COMMENT',
-    postID,
+    postId,
     i
   }
 }

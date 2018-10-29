@@ -1,11 +1,18 @@
 import React from 'react'
-const Singlle = React.createClass({
+import Photo from './Photo'
+import Comments from './comments'
+const Single = React.createClass({
   render() {
+    const {postId} = this.props.params
+    const i= this.props.posts.findIndex((post) => post.code===postId)
+    const post= this.props.posts[i]
+    const postComments = this.props.comments[postId] || []
     return (
       <div className="single-photo">
-        single
+        <Photo i={i} post={post} {...this.props} />
+        <Comments postComments={postComments} {...this.props}/>
       </div>
     )
   }
 })
-export default Singlle
+export default Single
